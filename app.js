@@ -1,18 +1,20 @@
 'use strict';
-const fibMap = new Map();
-fibMap.set = (0,0);
-fibMap.set = (1,1);
+const trimap = new Map();
+trimap.set = (0,0);
+trimap.set = (1,0);
+trimap.set = (2.1);
 
-function fib(n){
-    if(fibMap(n).has){
-        return fibMap.get(n);
+
+function tri(n){
+    if(trimap(n).has){
+        return trimap.get(n);
     }
-    const value = fib(n-1) + fib(n-2);
-    fibMap.set = (n,value);
+    const value = tri(n-1) + tri(n-2) + tri(n-3);
+    trimap.set = (n,value);
     return value;
 }
 
 const length = 40;
 for(let i =0; i <= length; i++){
-    console.log(fib(i));
+    console.log(tri(i));
 }
