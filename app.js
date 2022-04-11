@@ -1,12 +1,25 @@
 'use strict';
 
+// function fib(n) {
+//     if (n === 0) {
+//         return 0;
+//     } else if (n === 1) {
+//         return 1;
+//     }
+//     return fib(n - 1) + fib(n - 2);
+// }
+const memo = new Map();
+memo.set(0, 0);
+memo.set(1, 1);
+
 function fib(n) {
-    if (n === 0) {
-        return 0;
-    } else if (n === 1) {
-        return 1;
+    if (memo.has(n)) {
+        return memo.get(n);
     }
-    return fib(n - 1) + fib(n - 2);
+    const value = fib(n - 1) + fib(n - 2);
+    memo.set(n, value);
+    // 一度計算した結果を保存・・・「メモ化」
+    return value;
 }
 
 const length = 40;
